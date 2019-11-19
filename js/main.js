@@ -13,6 +13,7 @@ let moviesJSON = {
 let url = "https://www.omdbapi.com/?apikey=1d9678d0&plot=full&t=";
 //Tager fat i det element fra html, som skal bruges til at indsætte dataen
 let container = document.getElementById("movieContainer");
+
 //et for loop laves til at køre gennem alle filmene fra moviesJSON
 for (let i = 0; i < moviesJSON.movies.length; i++) {
   //for at hente dataen fra omdb sammensættes url fra tidligere med titlerne fra json og mellemrum udskiftes med +
@@ -31,6 +32,7 @@ for (let i = 0; i < moviesJSON.movies.length; i++) {
             posterContainer.setAttribute("class", "posterContainer");
             const poster = document.createElement("img");
             poster.setAttribute("src", data.Poster);
+            poster.setAttribute("alt", "Poster for " + data.Title)
 
             const h3 = document.createElement("h3");
             h3.setAttribute("class", "movieTitle");
@@ -60,6 +62,7 @@ for (let i = 0; i < moviesJSON.movies.length; i++) {
             const video = document.createElement("iframe");
             video.setAttribute("src", "https://www.youtube.com/embed/"+moviesJSON.movies[i].videoID)
             video.setAttribute("class", "trailer");
+            video.setAttribute("title", "Trailer for " + data.Title)
 
             //I denne del har jeg skabt hele html'et der skal komme med informationer om filmene, istedet for at tilføje elementerne en efter en.
             const information = document.createElement("div");
@@ -67,9 +70,9 @@ for (let i = 0; i < moviesJSON.movies.length; i++) {
             information.innerHTML = "<p><b>Release Year:</b> " + data.Year + " (" + dateDiff + " years old)</p><p><b>Plot:</b> "+ data.Plot +"</p><p><b>Actors:</b> " + data.Actors + "</p><p><b>Runtime:</b> " + data.Runtime + "</p><p><b>Awards:</b> " + data.Awards + "</p>";
 
             //UDKOMMENTERET - mere til modal (lukke knap)
-            //const close = document.createElement("span");
-            // close.setAttribute("class", "close");
-            // close.innerText = "x";
+            const close = document.createElement("span");
+            close.setAttribute("class", "close");
+            close.innerText = "x";
 
             //Her sættes alle de elementer der er blevet skabt ind i HTML,
             box.appendChild(posterContainer);
@@ -77,18 +80,17 @@ for (let i = 0; i < moviesJSON.movies.length; i++) {
             box.appendChild(h3);
             //box.appendChild(button);
             box.appendChild(modal)
-            //modal.appendChild(close)
+            //modalContent.appendChild(close)
             modal.appendChild(modalContent)
             modalContent.appendChild(video)
             modalContent.appendChild(information)
             //den sidste er den der binder det fast med det element fra HTML som der blev taget fat i tidligere
             container.appendChild(box);
-
         })
 }
 
 //UDKOMMENTERET - Det sidste forsøg jeg lavede med at sætte modalboksen op
-// console.log(document.querySelectorAll("button"));
+console.log(document.querySelectorAll("button"));
 //
 // //https://stackoverflow.com/questions/40645032/creating-multiple-modals-on-a-single-page
 // // Get the button that opens the modal
