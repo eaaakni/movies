@@ -14,11 +14,6 @@ header h1{
 header h2, h3 {
     font-family: 'Dancing Script', cursive;
 }
-/* body {
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-  } */
 
 .slide-container {
   scroll-snap-type: x mandatory;
@@ -68,7 +63,7 @@ header h2, h3 {
 
 
 
-
+/* UDKOMMENTERET - Alt til Modal boksen som kom med den kode jeg fandt til at prøve det af med */
   /* The Modal (background)
   .modal {
       display: none; /* Hidden by default
@@ -138,17 +133,3 @@ header h2, h3 {
       background-color: #5cb85c;
       color: white;
   } */
-
-
-
-
-
-/* .slide a {
-    display: block;
-} */
-
-/* @media only screen and (min-width: 600px) {
-    main {
-        display: flex;
-    }
-} */
